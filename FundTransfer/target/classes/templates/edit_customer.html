@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Edit Customer</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Edit Customer</h1>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${account}"
+			method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>				
+					<td>Customer ID:</td>
+					<td>
+						<input type="text" th:field="*{id}" readonly="readonly" />
+					</td>
+				</tr>			
+				<tr>
+					<td>Customer Name:</td>
+					<td><input type="text" th:field="*{customer.customerName}" /></td>
+				</tr>
+				<tr>
+					<td>Mobile No:</td>
+					<td><input type="text" th:field="*{customer.phoneNo}" /></td>
+				</tr>
+				<tr>
+					<td>Bank Name:</td>
+					<td><span th:text="*{bankName}" th:remove="tag">Bank Name</span></td>
+				</tr>
+				<tr>
+					<td>Account No:</td>
+					<td><span th:text="*{accountNo}" th:remove="tag">Account No</span></td>
+				</tr>
+				<tr>
+					<td>Balance:</td>
+					<td><span th:text="*{balance}" th:remove="tag">Current Balance</span></td>
+				</tr>							
+				<tr>
+					<td colspan="2"><button type="submit">Save</button> </td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

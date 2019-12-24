@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New Customer</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Create New Customer</h1>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${account}"
+			method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Customer Name:</td>
+					<td><input type="text" th:field="*{customer.customerName}" /></td>
+				</tr>
+				<tr>
+					<td>Mobile No:</td>
+					<td><input type="text" th:field="*{customer.phoneNo}" /></td>
+				</tr>
+				<tr>
+					<td>Bank Name:</td>
+					<td><input type="text" th:field="*{bankName}" /></td>
+				</tr>
+				<tr>
+					<td>Initial Amount:</td>
+					<td><input type="text" th:field="*{balance}" /></td>
+				</tr>
+												
+				<tr>
+					<td colspan="2"><button type="submit">Save</button> </td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

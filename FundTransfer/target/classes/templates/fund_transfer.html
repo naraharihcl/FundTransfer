@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New Product</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Create New Product</h1>
+		<br />
+		<form action="#" th:action="@{/sendFundTransfer}" th:object="${account}"
+			method="post">
+
+<input id="userAccountId" th:field="*{id}" type="hidden"/>
+
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Customer Name:</td>
+					<td> <span th:text="*{customer.customerName}" th:remove="tag">Customer Name</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Account No:</td>
+					<td><span th:text="*{accountNo}" th:remove="tag">Account No</span></td>
+				</tr>
+				<tr>
+					<td>Balance:</td>
+					<td><span th:text="*{balance}" th:remove="tag">Current Balance</span></td>
+				</tr>
+				
+				<td>Select Account No:</td>
+                <td>
+                    <select th:field="*{otherAccountId}">
+                         <option value=""> -- </option>
+                         <option th:each="accounts : ${listAccounts}"
+                            th:value="${accounts.id}"
+                            th:utext="${accounts.customer.customerName}"/>
+                  </select>
+ 
+                </td>
+            </tr>
+				<tr>
+					<td>Send Amount:</td>
+					<td><input type="text" th:field="*{transferAmount}" /></td>
+				</tr>
+												
+				<tr>
+					<td colspan="2"><button type="submit">Fund Transfer</button> </td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
